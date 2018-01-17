@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Foundation,{ Callout, Colors, Button } from 'react-foundation';
-
+import Foundation,{ Colors, Button } from 'react-foundation';
+import { connect } from 'react-redux';
+import GoalList from '../components/GoalList';
 
 class HomePage extends Component {
   constructor(){
@@ -10,20 +11,19 @@ class HomePage extends Component {
     }
   }
   render(){
-    let msg = "";
-    if (this.state.click > 0)
-      msg = "Click count: " + this.state.click;
 
     return(
-      <div className="grid-container">
-        <Callout color={Colors.PRIMARY}>
-          <h2>Hello World</h2>
-        </Callout>
-        <p>{msg}</p>
-        <Button onClick={() => this.setState({click: this.state.click + 1})} color={Colors.SECONDARY}>Here</Button>
+      <div className="list">
+        <GoalList data={this.props.goal} />
       </div>
+
     );
   }
+};
+
+const mapStateToProps = (state) =>{
+  const { goal } = state;
+  return { goal };
 }
 
-export default HomePage;
+export default connect(mapStateToProps, {})(HomePage);
