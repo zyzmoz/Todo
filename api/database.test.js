@@ -3,8 +3,12 @@ import * as api from './database';
 test('Database Api Test', () => {
   api.save({text: "Steve"});
   api.save({text: "Bill"});
-  const id = api.save({text: "Elon"});
-  expect(id).not.toBe('');
+
+  let id = '';
+  api.save({text: "Elon"}).then((res) => {
+    id = res._id;
+    expect(res._id).not.toBe('');
+  });
 
   const doc = api.findOne(id);
   expect(doc).not.toBe({});

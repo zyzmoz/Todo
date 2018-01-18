@@ -1,6 +1,15 @@
-{"text":"Steve","_id":"g9LjYk3jtBo1EZdy"}
-{"text":"Bill","_id":"ebFIUCiaBEbWXQDV"}
-{"text":"Elon","_id":"yI9uAydnXOO2rGKF"}
-{"$$deleted":true,"_id":"ebFIUCiaBEbWXQDV"}
-{"$$deleted":true,"_id":"g9LjYk3jtBo1EZdy"}
-{"$$deleted":true,"_id":"yI9uAydnXOO2rGKF"}
+{"text":"Learn about reducers","completed":false,"_id":"KwTroDGRwHBZNfC1"}
+{"text":"Learn about store","completed":false,"_id":"PZimXv2i2x1KrxSU"}
+{"text":"Learn about actions","completed":false,"_id":"xiO3Hp4pVgvICLPJ"}
+{"text":"Steve","_id":"HiyA4u7aKZQ8QRKI"}
+{"text":"Learn about actions","completed":false,"_id":"SPyBGPbfj9JBDuLx"}
+{"text":"Bill","_id":"zrBazAU2lbesruOS"}
+{"text":"Learn about reducers","completed":false,"_id":"gyhYEzZ1IK6c1nsD"}
+{"text":"Elon","_id":"8YQRVF9Ersv1Heka"}
+{"text":"Learn about store","completed":false,"_id":"6ubiXAHDtfW6mpuy"}
+{"$$deleted":true,"_id":"8YQRVF9Ersv1Heka"}
+{"$$deleted":true,"_id":"HiyA4u7aKZQ8QRKI"}
+{"$$deleted":true,"_id":"KwTroDGRwHBZNfC1"}
+{"$$deleted":true,"_id":"PZimXv2i2x1KrxSU"}
+{"$$deleted":true,"_id":"xiO3Hp4pVgvICLPJ"}
+{"$$deleted":true,"_id":"zrBazAU2lbesruOS"}

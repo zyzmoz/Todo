@@ -10,7 +10,7 @@ class Goal extends Component {
     if (!this.props.data.completed){
       return (
         <div className="col-20">
-          <Button onClick={() => this.props.setDone(this.props.data.index)}>Done</Button>
+          <Button onClick={() => this.props.setDone(this.props.data)}>Done</Button>
         </div>
       );
     }
@@ -18,7 +18,7 @@ class Goal extends Component {
   }
 
   render(){
-
+    
     return(
       <div className="list-item  clearfix">
         <div className="col-80">

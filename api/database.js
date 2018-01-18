@@ -1,21 +1,22 @@
 var Datastore = require('nedb');
-var db = new Datastore({filename: './db'});
+var db = new Datastore({filename:'./db'});
 
 db.loadDatabase((err) => {
   if(err)
     console.log('Erro',err);
 });
 
-export const save = (obj) => {
-  return db.insert(obj, (err, doc) => {
-    console.log('Inserted', doc.text, 'with ID', doc._id);
-    if (err)
-      return '';
-    return doc._id;
+const save = (obj) => {
+  return new Promise((resolve, reject) => {
+    db.insert(obj, (err, doc) => {
+      if (err)
+        resolve({});
+      resolve(doc);
+    });
   });
 }
 
-export const findOne = (id) => {
+const findOne = (id) => {
   return db.findOne({_id: id}, (err, doc) => {
     if (err)
       return {};
@@ -24,16 +25,18 @@ export const findOne = (id) => {
   });
 }
 
-export const findAll = () => {
-  return db.find({}, (err, docs) => {
-    if (err)
-      return [];
-
-    return docs;
+const findAll = () => {
+  return new Promise((resolve, reject) => {
+    db.find({}, (err, docs) => {
+      if (err)
+        resolve([]);
+      resolve(docs);
+    });
   });
+
 }
 
-export const remove = (id) => {
+const remove = (id) => {
   return db.remove({_id: id}, (err, numDeleted) => {
     if (err)
       return 0;
@@ -42,7 +45,7 @@ export const remove = (id) => {
   });
 }
 
-export const removeAll = () => {
+const removeAll = () => {
   return db.remove({}, {multi: true}, (err, numDeleted) => {
     if (err)
       return 0;
@@ -51,12 +54,15 @@ export const removeAll = () => {
   });
 }
 
-export const update = (obj) => {
+const update = (obj) => {
   const newData = obj
-  delete newData._id;
-  return db.update({_id: obj._id}, newData, {}, (err, numReplaced) => {
+  const id = obj._id;
+  delete newData._id;  
+  return db.update({_id: id}, newData, {}, (err, numReplaced) => {
     if(err)
       return 0;
     return numReplaced;
   });
 }
+
+module.exports = {save, findOne, findAll, remove, update, removeAll};
