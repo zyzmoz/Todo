@@ -18,7 +18,7 @@ export const load = () => dispatch => {
 }
 
 export const addGoal = (obj) => dispatch => {
-  return api.save({...obj, completed: false}).then((res) => {
+  return api.save({...obj, completed: false, createdAt: new Date()}).then((res) => {
     const _id = res._id;
     return {type: ADD_GOAL, obj: {...obj, _id}};
   });

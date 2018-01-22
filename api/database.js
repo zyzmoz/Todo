@@ -27,9 +27,10 @@ const findOne = (id) => {
 
 const findAll = () => {
   return new Promise((resolve, reject) => {
-    db.find({}, (err, docs) => {
+    db.find({}).sort({createdAt: 1}).exec((err, docs) => {
       if (err)
         resolve([]);
+      // docs.sort((a,b) => { return a.createAt - b.createAt});
       resolve(docs);
     });
   });
@@ -57,7 +58,7 @@ const removeAll = () => {
 const update = (obj) => {
   const newData = obj
   const id = obj._id;
-  delete newData._id;  
+  delete newData._id;
   return db.update({_id: id}, newData, {}, (err, numReplaced) => {
     if(err)
       return 0;

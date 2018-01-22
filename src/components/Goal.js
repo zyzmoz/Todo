@@ -17,8 +17,7 @@ class Goal extends Component {
     return (<br />);
   }
 
-  render(){
-    
+  render(){    
     return(
       <div className="list-item  clearfix">
         <div className="col-80">

@@ -9,8 +9,9 @@ class GoalList extends Component {
         {
           this.props.data.map((goal, index) => {
             const data = {...goal, index};
+            console.log(index, goal);
             return(
-              <Goal data={data} key={index} />
+              <Goal data={goal} key={index} />
             )
           })
         }
